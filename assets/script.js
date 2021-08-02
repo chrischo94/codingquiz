@@ -1,6 +1,6 @@
 var startQuizBtn = document.querySelector(".start-quiz");
 var viewHighscoresEl = document.querySelector(".viewHighscores");
-var timerEl = document.querySelector(".timerCount");
+var timerEl = document.querySelector(".timer");
 var choiceOne, choiceTwo, choiceThree, choiceFour;
 
 var codingQuizEl = document.querySelector(".codingQuiz");
@@ -82,7 +82,7 @@ var questionList = [
 ]
 
 function resetTimer(){
-    timerCount = 90;
+    timer = 90;
 }
 
 function startTimer() {
@@ -174,34 +174,34 @@ function createButton(obj){
     firstChoice = choicesEl.querySelector("#a");
 
     var answerTwo = document.createElement("button");
-    answerTwo.textContent = "a) " + obj.answers["a"]
-    answerTwo.setAttribute("id", "a")
+    answerTwo.textContent = "b) " + obj.answers["b"]
+    answerTwo.setAttribute("id", "b")
     choicesEl.appendChild(answerTwo)
-    secondChoice = choicesEl.querySelector("#a");
+    secondChoice = choicesEl.querySelector("#b");
 
     var answerThree = document.createElement("button");
     answerThree.textContent = "c) " + obj.answers["c"]
     answerThree.setAttribute("id", "c")
     choicesEl.appendChild(answerThree)
-    thirdChoice = choicesEl.querySelector("#a");
+    thirdChoice = choicesEl.querySelector("#c");
 
     var answerFour = document.createElement("button");
-    answerFour.textContent = "a) " + obj.answers["a"]
-    answerFour.setAttribute("id", "a")
+    answerFour.textContent = "d) " + obj.answers["d"]
+    answerFour.setAttribute("id", "d")
     choicesEl.appendChild(answerFour)
-    fourthChoice = choicesEl.querySelector("#a");
+    fourthChoice = choicesEl.querySelector("#d");
 
-    var answerFive = document.createElement("button");
-    answerFive.textContent = "a) " + obj.answers["a"]
-    answerFive.setAttribute("id", "a")
-    choicesEl.appendChild(answerFive)
-    fifthChoice = choicesEl.querySelector("#a");
+    // var answerFive = document.createElement("button");
+    // answerFive.textContent = "a) " + obj.answers["a"]
+    // answerFive.setAttribute("id", "a")
+    // choicesEl.appendChild(answerOne)
+    // fifthChoice = choicesEl.querySelector("#a");
 
-    var answerSix = document.createElement("button");
-    answerSix.textContent = "a) " + obj.answers["a"]
-    answerSix.setAttribute("id", "a")
-    choicesEl.appendChild(answerSix)
-    sixthChoice = choicesEl.querySelector("#a");
+    // var answerSix = document.createElement("button");
+    // answerSix.textContent = "a) " + obj.answers["a"]
+    // answerSix.setAttribute("id", "a")
+    // choicesEl.appendChild(answerTwo)
+    // sixthChoice = choicesEl.querySelector("#a");
 }
 
 function createListeners(){
