@@ -11,11 +11,11 @@ var answerEl = document.querySelector(".answer");
 var timer = 90;
 var timerCount;
 var score = 0;
-var choiceOne, choiceTwo, choiceThree, choiceFour;
+
 var questionCounter = 0;
 
 
-let questionList = [
+var questionList = [
     {
     "question": "Which symbol is used to call an id from the HTML?", //q1
     "choices": {
@@ -81,13 +81,12 @@ let questionList = [
     },
 ]
 
-
 function resetTimer(){
-    timerCount = 0;
+    timerCount = 90;
 }
 
 function startTimer() {
-    timer = setInterval(function() {
+    var timer = setInterval(function() {
         if (timerCount >= 1) {
             timerCount--;
             timerEl.textContent = timerCount + " seconds remaining";
@@ -108,8 +107,9 @@ function startTimer() {
             }, 1000);
         }
 
-}
+    
 function homeScreen() {
+    score = 0;
 
 }
 
@@ -164,7 +164,7 @@ createQuestion(questionObj){
     questionEl.innerHTML = questionObj.question
 }
 
-var createButton = document.createElement("button");
+
 function createButton(obj){
     var answerOne = document.createElement("button");
     answerOne.textContent = "a) " +obj.answers["a"]
@@ -203,7 +203,7 @@ function createButton(obj){
     sixthChoice = choicesEl.querySelector("#a");
 }
 
-createListeners(){
+function createListeners(){
     firstChoice.addEventListener("click", choiceOneSelected)
     secondChoice.addEventListener("click", choiceTwoSelected)
     thirdChoice.addEventListener("click", choiceThreeSelected)
@@ -211,16 +211,83 @@ createListeners(){
 }
 
 function choiceOneSelected() {
-    if ("a" === questionList[questionCounter].correctAnswer)
+    if ("a" === questionList[questionCounter].correctAnswer) {
+        answerEl.innerHTML = "Correct";
         setTimeout(() => {
-            answerEl.innerHTML = "";
+            
             questionCounter++;
             score += 5;
             startGame();
         }, 1000);
-        else {
-            answerEl.innterHTML = ""
-        }
+        
+    }else {
+            answerEl.innterHTML = "Incorrect"
+            setTimeout(() => {
+                score -= 5;
+                timer -= 10;
+                startGame();
+            }, 1000);
         answerEl.innerHTML = "Correct"
+}
+}
+function choiceTwoSelected() {
+    if ("b" === questionList[questionCounter].correctAnswer) {
+        answerEl.innerHTML = "Correct";
+        setTimeout(() => {
+            
+            questionCounter++;
+            score += 5;
+            startGame();
+        }, 1000);
+        
+    }else {
+            answerEl.innterHTML = "Incorrect"
+            setTimeout(() => {
+                score -= 5;
+                timer -= 10;
+                startGame();
+            }, 1000);
+        answerEl.innerHTML = "Correct"
+}
+}
+function choiceThreeSelected() {
+    if ("c" === questionList[questionCounter].correctAnswer) {
+        answerEl.innerHTML = "Correct";
+        setTimeout(() => {
+            
+            questionCounter++;
+            score += 5;
+            startGame();
+        }, 1000);
+        
+    }else {
+            answerEl.innterHTML = "Incorrect"
+            setTimeout(() => {
+                score -= 5;
+                timer -= 10;
+                startGame();
+            }, 1000);
+        answerEl.innerHTML = "Correct"
+}
+}
+function choiceFourSelected() {
+    if ("d" === questionList[questionCounter].correctAnswer) {
+        answerEl.innerHTML = "Correct";
+        setTimeout(() => {
+            
+            questionCounter++;
+            score += 5;
+            startGame();
+        }, 1000);
+        
+    }else {
+            answerEl.innterHTML = "Incorrect"
+            setTimeout(() => {
+                score -= 5;
+                timer -= 10;
+                startGame();
+            }, 1000);
+        answerEl.innerHTML = "Correct"
+}
 }
 startButtonEl.addEventListener("click", startGame)
