@@ -102,7 +102,7 @@ function startTimer() {
                 timerEl.textContent = "Time is up!"
                 endGame();
             }
-            }, 1000);
+            }, 1500);
         }
 
     
@@ -211,9 +211,9 @@ function createListeners(){
 
 function choiceOneSelected() {
     if ("a" === questionList[questionCounter].answer) {
-        answerEl.innerHTML = "Correct";
+        choicesEl.innerHTML = "Correct";
         setTimeout(() => {
-            
+            choicesEl.innerHTML = "";
             questionCounter++;
             // score += 5;
             timer += 10;
@@ -221,20 +221,20 @@ function choiceOneSelected() {
         }, 1000);
         
     }else {
-            answerEl.innterHTML = "Incorrect"
+            choicesEl.innterHTML = "Incorrect"
             setTimeout(() => {
                 // score -= 5;
                 timer -= 10;
                 startQuiz();
             }, 1000);
-        answerEl.innerHTML = "Correct"
+        choicesEl.innerHTML = "Incorrect"
 }
 }
 function choiceTwoSelected() {
     if ("b" === questionList[questionCounter].answer) {
-        answerEl.innerHTML = "Correct";
+        choicesEl.innerHTML = "Correct";
         setTimeout(() => {
-            
+            choicesEl.innerHTML = "";
             questionCounter++;
             // score += 5;
             timer += 10;
@@ -242,20 +242,21 @@ function choiceTwoSelected() {
         }, 1000);
         
     }else {
-            answerEl.innterHTML = "Incorrect"
+            choicesEl.innterHTML = "Incorrect"
             setTimeout(() => {
                 // score -= 5;
+                choicesEl.innerHTML = "";
                 timer -= 10;
                 startQuiz();
             }, 1000);
-        answerEl.innerHTML = "Correct"
+        choicesEl.innerHTML = "Incorrect"
 }
 }
 function choiceThreeSelected() {
     if ("c" === questionList[questionCounter].answer) {
-        answerEl.innerHTML = "Correct";
+        choicesEl.innerHTML = "Correct";
         setTimeout(() => {
-            
+            choicesEl.innerHTML = "";
             questionCounter++;
             // score += 5;
 
@@ -264,34 +265,37 @@ function choiceThreeSelected() {
         }, 1000);
         
     }else {
-            answerEl.innterHTML = "Incorrect"
+            choicesEl.innterHTML = "Incorrect"
             setTimeout(() => {
                 // score -= 5;
+                choicesEl.innerHTML = "";
                 timer -= 10;
                 startQuiz();
             }, 1000);
-        answerEl.innerHTML = "Correct"
+        choicesEl.innerHTML = "Incorrect"
 }
 }
 function choiceFourSelected() {
     if ("d" === questionList[questionCounter].answer) {
-        answerEl.innerHTML = "Correct";
+        choicesEl.innerHTML = "Correct";
         setTimeout(() => {
-            
+            choicesEl.innerHTML = "";
             questionCounter++;
+            choicesEl.innerHTML = "";
             // score += 5;
             timer += 10;
             startQuiz();
         }, 1000);
         
     }else {
-            answerEl.innterHTML = "Incorrect"
+            choicesEl.innterHTML = "Incorrect"
             setTimeout(() => {
                 // score -= 5;
+                choicesEl.innerHTML = "";
                 timer -= 10;
                 startQuiz();
             }, 1000);
-        answerEl.innerHTML = "Correct"
+        choicesEl.innerHTML = "Incorrect"
 }
 }
 homeScreen();
