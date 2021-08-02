@@ -1,4 +1,4 @@
-var startButtonEl = document.querySelector(".startButton");
+var startQuizBtn = document.querySelector(".start-quiz");
 var viewHighscoresEl = document.querySelector(".viewHighscores");
 var timerEl = document.querySelector(".timerCount");
 var choiceOne, choiceTwo, choiceThree, choiceFour;
