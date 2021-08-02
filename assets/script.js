@@ -115,7 +115,7 @@ function homeScreen() {
         "<h2> Answer the following questions before time expires!"
         "<br><button class='start-quiz' type='button'>Start Quiz</button>"
     startQuizBtn = document.querySelector(".start-quiz")
-    startQuizBtn.addEventListener("click", StartQuiz)
+    startQuizBtn.addEventListener("click", startQuiz)
     startQuizBtn.addEventListener("click", resetTimer)
 }
 
