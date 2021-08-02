@@ -9,9 +9,7 @@ var choicesEl = document.querySelector(".choices");
 var answerEl = document.querySelector(".answer");
 
 var timer = 90;
-var timerCount;
 var score = 0;
-
 var questionCounter = 0;
 
 
@@ -86,8 +84,8 @@ function resetTimer(){
 }
 
 function startTimer() {
-    var timer = setInterval(function() {
-        if (timer >= 1) {
+    var startTimer = setInterval(function() {
+        if (timer > 1) {
             timer--;
             timerEl.textContent = timer + " seconds remaining";
             }else if (timer === 1){
@@ -96,13 +94,13 @@ function startTimer() {
             
             } else if (timer === 0) {
                 clearInterval(startTimer)
-                endQuiz();
+                endGame();
             }
             else {
                 clearInterval(startTimer);
                 timer = 0;
                 timerEl.textContent = "Time is up!"
-                endQuiz();
+                endGame();
             }
             }, 1000);
         }
@@ -168,25 +166,25 @@ function createQuestion(questionObj) {
 
 function createButton(obj){
     var answerOne = document.createElement("button");
-    answerOne.textContent = "a) " +obj.answers["a"]
+    answerOne.textContent = "a) " + obj.choices["a"]
     answerOne.setAttribute("id", "a")
     choicesEl.appendChild(answerOne)
     firstChoice = choicesEl.querySelector("#a");
 
     var answerTwo = document.createElement("button");
-    answerTwo.textContent = "b) " + obj.answers["b"]
+    answerTwo.textContent = "b) " + obj.choices["b"]
     answerTwo.setAttribute("id", "b")
     choicesEl.appendChild(answerTwo)
     secondChoice = choicesEl.querySelector("#b");
 
     var answerThree = document.createElement("button");
-    answerThree.textContent = "c) " + obj.answers["c"]
+    answerThree.textContent = "c) " + obj.choices["c"]
     answerThree.setAttribute("id", "c")
     choicesEl.appendChild(answerThree)
     thirdChoice = choicesEl.querySelector("#c");
 
     var answerFour = document.createElement("button");
-    answerFour.textContent = "d) " + obj.answers["d"]
+    answerFour.textContent = "d) " + obj.choices["d"]
     answerFour.setAttribute("id", "d")
     choicesEl.appendChild(answerFour)
     fourthChoice = choicesEl.querySelector("#d");
@@ -212,19 +210,20 @@ function createListeners(){
 }
 
 function choiceOneSelected() {
-    if ("a" === questionList[questionCounter].correctAnswer) {
+    if ("a" === questionList[questionCounter].answer) {
         answerEl.innerHTML = "Correct";
         setTimeout(() => {
             
             questionCounter++;
-            score += 5;
+            // score += 5;
+            timer += 10;
             startQuiz();
         }, 1000);
         
     }else {
             answerEl.innterHTML = "Incorrect"
             setTimeout(() => {
-                score -= 5;
+                // score -= 5;
                 timer -= 10;
                 startQuiz();
             }, 1000);
@@ -232,19 +231,20 @@ function choiceOneSelected() {
 }
 }
 function choiceTwoSelected() {
-    if ("b" === questionList[questionCounter].correctAnswer) {
+    if ("b" === questionList[questionCounter].answer) {
         answerEl.innerHTML = "Correct";
         setTimeout(() => {
             
             questionCounter++;
-            score += 5;
+            // score += 5;
+            timer += 10;
             startQuiz();
         }, 1000);
         
     }else {
             answerEl.innterHTML = "Incorrect"
             setTimeout(() => {
-                score -= 5;
+                // score -= 5;
                 timer -= 10;
                 startQuiz();
             }, 1000);
@@ -252,19 +252,21 @@ function choiceTwoSelected() {
 }
 }
 function choiceThreeSelected() {
-    if ("c" === questionList[questionCounter].correctAnswer) {
+    if ("c" === questionList[questionCounter].answer) {
         answerEl.innerHTML = "Correct";
         setTimeout(() => {
             
             questionCounter++;
-            score += 5;
+            // score += 5;
+
+            timer += 10;
             startQuiz();
         }, 1000);
         
     }else {
             answerEl.innterHTML = "Incorrect"
             setTimeout(() => {
-                score -= 5;
+                // score -= 5;
                 timer -= 10;
                 startQuiz();
             }, 1000);
@@ -272,19 +274,20 @@ function choiceThreeSelected() {
 }
 }
 function choiceFourSelected() {
-    if ("d" === questionList[questionCounter].correctAnswer) {
+    if ("d" === questionList[questionCounter].answer) {
         answerEl.innerHTML = "Correct";
         setTimeout(() => {
             
             questionCounter++;
-            score += 5;
+            // score += 5;
+            timer += 10;
             startQuiz();
         }, 1000);
         
     }else {
             answerEl.innterHTML = "Incorrect"
             setTimeout(() => {
-                score -= 5;
+                // score -= 5;
                 timer -= 10;
                 startQuiz();
             }, 1000);
