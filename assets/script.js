@@ -110,60 +110,61 @@ function startTimer() {
     
 function homeScreen() {
     score = 0;
-
-}
-
-function timeManager() {
-    if (questionList.answer=true) {
-        score += 1;
-        timer += 3;
-    }else {
-        score -= 1;
-        timer-= 5;
-    }
+    questionEl.innerHTML = "<h1>Coding Quiz </h1>"
+    choicesEl.innerHTML =
+        "<h2> Answer the following questions before time expires!"
+        "<br><button class='start-quiz' type='button'>Start Quiz</button>
+    startQuizBtn = document.querySelector(".start-quiz")
+    startQuizBtn.addEventListener("click", StartQuiz)
+    startQuizBtn.addEventListener("click", resetTimer)
 }
 
 function startQuiz() {
     startTimer();
-    clearInterval(timer);
     if (questionCounter === 0) {
         choicesEl.innerHTML = "";
+        createQuestion(questionList[questionCounter])
         createButton(questionList[questionCounter]);
         createListeners();
     } else if (questionCounter === 1) {
         choicesEl.innerHTML = "";
+        createQuestion(questionList[questionCounter])
         createButton(questionList[questionCounter]);
         createListeners();
     } else if (questionCounter === 2) {
         choicesEl.innerHTML = "";
+        createQuestion(questionList[questionCounter])
         createButton(questionList[questionCounter]);
         createListeners();
     } else if (questionCounter === 3) {
         choicesEl.innerHTML = "";
+        createQuestion(questionList[questionCounter])
         createButton(questionList[questionCounter]);
         createListeners();
     } else if (questionCounter === 4) {
         choicesEl.innerHTML = "";
+        createQuestion(questionList[questionCounter])
         createButton(questionList[questionCounter]);
         createListeners();
     } else if (questionCounter === 5) {
         choicesEl.innerHTML = "";
+        createQuestion(questionList[questionCounter])
         createButton(questionList[questionCounter]);
         createListeners();
-    } else if (questionCounter === 6) {
-        choicesEl.innerHTML = "";
-        createButton(questionList[questionCounter]);
-        createListeners();
+    
     } else {
         endGame();
     }
 }
 function endGame() {
-
-createQuestion(questionObj){
-    questionEl.innerHTML = questionObj.question
+    questionCounter = 0
+    timer = 0
+    questionEl.innerHTML = "<h1> Finished! </h1>"
 }
 
+function createQuestion(questionObj) {
+    questionEl.innerHTML = questionObj.question
+}
 
 function createButton(obj){
     var answerOne = document.createElement("button");
@@ -290,4 +291,4 @@ function choiceFourSelected() {
         answerEl.innerHTML = "Correct"
 }
 }
-startButtonEl.addEventListener("click", startGame)
+homeScreen();
