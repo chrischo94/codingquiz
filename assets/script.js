@@ -87,22 +87,22 @@ function resetTimer(){
 
 function startTimer() {
     var timer = setInterval(function() {
-        if (timerCount >= 1) {
-            timerCount--;
-            timerEl.textContent = timerCount + " seconds remaining";
-            }else if (timerCount === 1){
-                timerCount--;
-                timerEl.textContent = timerCount + " second remaining";
+        if (timer >= 1) {
+            timer--;
+            timerEl.textContent = timer + " seconds remaining";
+            }else if (timer === 1){
+                timer--;
+                timerEl.textContent = timer + " second remaining";
             
-            } else if (timerCount === 0) {
-                clearInterval(timer)
-                resetTimer();
+            } else if (timer === 0) {
+                clearInterval(startTimer)
+                endQuiz();
             }
             else {
-                clearInterval(timer);
-                timerCount = 0;
+                clearInterval(startTimer);
+                timer = 0;
                 timerEl.textContent = "Time is up!"
-                resetTimer();
+                endQuiz();
             }
             }, 1000);
         }
@@ -218,7 +218,7 @@ function choiceOneSelected() {
             
             questionCounter++;
             score += 5;
-            startGame();
+            startQuiz();
         }, 1000);
         
     }else {
@@ -226,7 +226,7 @@ function choiceOneSelected() {
             setTimeout(() => {
                 score -= 5;
                 timer -= 10;
-                startGame();
+                startQuiz();
             }, 1000);
         answerEl.innerHTML = "Correct"
 }
@@ -238,7 +238,7 @@ function choiceTwoSelected() {
             
             questionCounter++;
             score += 5;
-            startGame();
+            startQuiz();
         }, 1000);
         
     }else {
@@ -246,7 +246,7 @@ function choiceTwoSelected() {
             setTimeout(() => {
                 score -= 5;
                 timer -= 10;
-                startGame();
+                startQuiz();
             }, 1000);
         answerEl.innerHTML = "Correct"
 }
@@ -258,7 +258,7 @@ function choiceThreeSelected() {
             
             questionCounter++;
             score += 5;
-            startGame();
+            startQuiz();
         }, 1000);
         
     }else {
@@ -266,7 +266,7 @@ function choiceThreeSelected() {
             setTimeout(() => {
                 score -= 5;
                 timer -= 10;
-                startGame();
+                startQuiz();
             }, 1000);
         answerEl.innerHTML = "Correct"
 }
@@ -278,7 +278,7 @@ function choiceFourSelected() {
             
             questionCounter++;
             score += 5;
-            startGame();
+            startQuiz();
         }, 1000);
         
     }else {
@@ -286,7 +286,7 @@ function choiceFourSelected() {
             setTimeout(() => {
                 score -= 5;
                 timer -= 10;
-                startGame();
+                startQuiz();
             }, 1000);
         answerEl.innerHTML = "Correct"
 }
